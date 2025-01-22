@@ -1,0 +1,73 @@
+# Source: docker-registry/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-registry
+  namespace: jx
+  labels:
+    app: docker-registry
+    chart: docker-registry-2.2.3
+    release: docker-registry
+    heritage: Helm
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  annotations:
+    meta.helm.sh/release-name: 'docker-registry'
+    meta.helm.sh/release-namespace: 'jx'
+    wave.pusher.com/update-on-config-change: 'true'
+spec:
+  selector:
+    matchLabels:
+      app: docker-registry
+      release: docker-registry
+  replicas: 1
+  minReadySeconds: 5
+  template:
+    metadata:
+      labels:
+        app: docker-registry
+        release: docker-registry
+      annotations:
+        checksum/config: 492034f39a50c85107770255c8e115771feb08b03bd86989b039c405ed359257
+        checksum/secret: e70a14cbe7209fdbc7d8474755e4e2eb125b82ed8af72c327eb2eccac4d46b20
+    spec:
+      securityContext:
+        fsGroup: 1000
+        runAsUser: 1000
+      containers:
+      - name: docker-registry
+        image: "registry:2.8.1"
+        imagePullPolicy: IfNotPresent
+        command:
+        - /bin/registry
+        - serve
+        - /etc/docker/registry/config.yml
+        ports:
+        - containerPort: 5000
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 5000
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 5000
+        resources: {}
+        env:
+        - name: REGISTRY_HTTP_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: docker-registry-secret
+              key: haSharedSecret
+        - name: REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY
+          value: "/var/lib/registry"
+        volumeMounts:
+        - name: "docker-registry-config"
+          mountPath: "/etc/docker/registry"
+        - name: data
+          mountPath: /var/lib/registry/
+      volumes:
+      - name: docker-registry-config
+        configMap:
+          name: docker-registry-config
+      - name: data
+        emptyDir: {}

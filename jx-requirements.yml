@@ -16,6 +16,8 @@ spec:
     provider: minikube
   environments:
   - key: dev
+    owner: the-99
+    repository: jx3-minikube
   - key: staging
   - key: production
   ingress:
