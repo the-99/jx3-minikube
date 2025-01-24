@@ -6,6 +6,10 @@ data:
       repos:
       - the-99/jx3-minikube
       require_self_approval: true
+    - lgtm_acts_as_approve: true
+      repos:
+      - the-99/beauty-box-site
+      require_self_approval: true
     cat: {}
     cherry_pick_unapproved: {}
     config_updater:
@@ -16,6 +20,11 @@ data:
         env/prow/plugins.yaml:
           name: plugins
     external_plugins:
+      the-99/beauty-box-site:
+      - endpoint: http://cd-indicators.jx.svc.cluster.local/lighthouse/events
+        name: cd-indicators
+      - endpoint: http://lighthouse-webui-plugin.jx.svc.cluster.local/lighthouse/events
+        name: lighthouse-webui-plugin
       the-99/jx3-minikube:
       - endpoint: http://cd-indicators.jx.svc.cluster.local/lighthouse/events
         name: cd-indicators
@@ -25,6 +34,20 @@ data:
       additional_labels: null
     owners: {}
     plugins:
+      the-99/beauty-box-site:
+      - approve
+      - assign
+      - help
+      - hold
+      - lgtm
+      - lifecycle
+      - override
+      - size
+      - trigger
+      - wip
+      - cat
+      - dog
+      - pony
       the-99/jx3-minikube:
       - config-updater
       - approve
@@ -52,6 +75,11 @@ data:
     - repos:
       - the-99/jx3-minikube
       trusted_org: the-99
+    - repos:
+      - the-99/beauty-box-site
+      trusted_org: the-99
+    welcome:
+    - message_template: Welcome
 kind: ConfigMap
 metadata:
   creationTimestamp: null
