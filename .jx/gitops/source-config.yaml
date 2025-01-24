@@ -9,6 +9,7 @@ spec:
     providerKind: github
     repositories:
     - name: beauty-box-site
+    - name: my-react-quickstart
     scheduler: in-repo
   - owner: otnipid
     provider: https://github.com
