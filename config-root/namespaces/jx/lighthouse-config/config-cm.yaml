@@ -7,6 +7,7 @@ data:
       LinkURL: null
     in_repo_config:
       enabled:
+        otnipid/beauty-box-site: true
         the-99/beauty-box-site: true
         the-99/jx3-minikube: true
     plank: {}
@@ -20,6 +21,7 @@ data:
         required-if-present-contexts: null
         skip-unknown-contexts: false
       merge_method:
+        otnipid/beauty-box-site: merge
         the-99/beauty-box-site: merge
         the-99/jx3-minikube: merge
       queries:
@@ -33,6 +35,7 @@ data:
         - needs-rebase
         repos:
         - the-99/jx3-minikube
+        - otnipid/beauty-box-site
         - the-99/beauty-box-site
       - labels:
         - updatebot
@@ -44,6 +47,7 @@ data:
         - needs-rebase
         repos:
         - the-99/jx3-minikube
+        - otnipid/beauty-box-site
         - the-99/beauty-box-site
       target_url: http://lighthouse-jx.192.168.49.2.nip.io/merge/status
 kind: ConfigMap

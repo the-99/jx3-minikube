@@ -1,0 +1,22 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: otnipid
+    provider: github
+    repository: beauty-box-site
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  name: otnipid-beauty-box-site
+  namespace: jx
+spec:
+  httpCloneURL: https://github.com/otnipid/beauty-box-site.git
+  org: otnipid
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: beauty-box-site
+  scheduler:
+    kind: ""
+    name: in-repo
+  url: https://github.com/otnipid/beauty-box-site
