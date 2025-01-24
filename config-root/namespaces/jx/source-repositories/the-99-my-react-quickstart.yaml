@@ -1,0 +1,22 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: the-99
+    provider: github
+    repository: my-react-quickstart
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  name: the-99-my-react-quickstart
+  namespace: jx
+spec:
+  httpCloneURL: https://github.com/the-99/my-react-quickstart.git
+  org: the-99
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: my-react-quickstart
+  scheduler:
+    kind: ""
+    name: in-repo
+  url: https://github.com/the-99/my-react-quickstart

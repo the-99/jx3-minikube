@@ -10,6 +10,7 @@ data:
         otnipid/beauty-box-site: true
         the-99/beauty-box-site: true
         the-99/jx3-minikube: true
+        the-99/my-react-quickstart: true
     plank: {}
     pod_namespace: jx
     prowjob_namespace: jx
@@ -24,6 +25,7 @@ data:
         otnipid/beauty-box-site: merge
         the-99/beauty-box-site: merge
         the-99/jx3-minikube: merge
+        the-99/my-react-quickstart: merge
       queries:
       - labels:
         - approved
@@ -37,6 +39,7 @@ data:
         - the-99/jx3-minikube
         - otnipid/beauty-box-site
         - the-99/beauty-box-site
+        - the-99/my-react-quickstart
       - labels:
         - updatebot
         missingLabels:
@@ -49,6 +52,7 @@ data:
         - the-99/jx3-minikube
         - otnipid/beauty-box-site
         - the-99/beauty-box-site
+        - the-99/my-react-quickstart
       target_url: http://lighthouse-jx.192.168.49.2.nip.io/merge/status
 kind: ConfigMap
 metadata:

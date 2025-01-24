@@ -14,6 +14,10 @@ data:
       repos:
       - the-99/beauty-box-site
       require_self_approval: true
+    - lgtm_acts_as_approve: true
+      repos:
+      - the-99/my-react-quickstart
+      require_self_approval: true
     cat: {}
     cherry_pick_unapproved: {}
     config_updater:
@@ -35,6 +39,11 @@ data:
       - endpoint: http://lighthouse-webui-plugin.jx.svc.cluster.local/lighthouse/events
         name: lighthouse-webui-plugin
       the-99/jx3-minikube:
+      - endpoint: http://cd-indicators.jx.svc.cluster.local/lighthouse/events
+        name: cd-indicators
+      - endpoint: http://lighthouse-webui-plugin.jx.svc.cluster.local/lighthouse/events
+        name: lighthouse-webui-plugin
+      the-99/my-react-quickstart:
       - endpoint: http://cd-indicators.jx.svc.cluster.local/lighthouse/events
         name: cd-indicators
       - endpoint: http://lighthouse-webui-plugin.jx.svc.cluster.local/lighthouse/events
@@ -86,6 +95,20 @@ data:
       - cat
       - dog
       - pony
+      the-99/my-react-quickstart:
+      - approve
+      - assign
+      - help
+      - hold
+      - lgtm
+      - lifecycle
+      - override
+      - size
+      - trigger
+      - wip
+      - cat
+      - dog
+      - pony
     requiresig: {}
     sigmention: {}
     size:
@@ -103,6 +126,9 @@ data:
       trusted_org: otnipid
     - repos:
       - the-99/beauty-box-site
+      trusted_org: the-99
+    - repos:
+      - the-99/my-react-quickstart
       trusted_org: the-99
     welcome:
     - message_template: Welcome
