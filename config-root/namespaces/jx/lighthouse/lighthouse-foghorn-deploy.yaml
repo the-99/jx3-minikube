@@ -37,7 +37,7 @@ spec:
         - name: "GIT_SERVER"
           value: "https://github.com"
         - name: "GIT_USER"
-          value:
+          value: otnipid-jenkinsx-bot
         - name: "GIT_TOKEN"
           valueFrom:
             secretKeyRef:

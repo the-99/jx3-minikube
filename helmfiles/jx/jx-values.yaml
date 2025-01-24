@@ -30,6 +30,7 @@ jxRequirements:
     gitName: github
     gitServer: https://github.com
     provider: minikube
+    registry: 10.104.185.84
   environments:
   - key: dev
     owner: the-99
@@ -44,6 +45,8 @@ jxRequirements:
       email: ""
       enabled: false
       production: false
+  pipelineUser:
+    username: otnipid-jenkinsx-bot
   repository: bucketrepo
   secretStorage: local
   vault: {}

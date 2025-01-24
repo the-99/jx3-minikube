@@ -30,6 +30,6 @@ spec:
     envOrganisation: todo
     gitServer: https://github.com
     kubeProvider: "minikube"
-    pipelineUsername: "jenkins-x-labs-bot"
+    pipelineUsername: "otnipid-jenkinsx-bot"
     pipelineUserEmail: "jenkins-x@googlegroups.com"
     prowConfig: Scheduler
