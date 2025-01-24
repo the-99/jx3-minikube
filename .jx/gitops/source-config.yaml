@@ -10,6 +10,12 @@ spec:
     repositories:
     - name: beauty-box-site
     scheduler: in-repo
+  - owner: otnipid
+    provider: https://github.com
+    providerKind: github
+    repositories:
+    - name: beauty-box-site
+    scheduler: in-repo
   slack:
     channel: '#jenkins-x-pipelines'
     kind: failureOrNextSuccess
