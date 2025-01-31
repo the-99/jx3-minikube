@@ -1,0 +1,22 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: the-99
+    provider: github
+    repository: beauty-box-site
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  name: the-99-beauty-box-site
+  namespace: jx
+spec:
+  httpCloneURL: https://github.com/the-99/beauty-box-site.git
+  org: the-99
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: beauty-box-site
+  scheduler:
+    kind: ""
+    name: in-repo
+  url: https://github.com/the-99/beauty-box-site
